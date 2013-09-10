@@ -3,6 +3,7 @@ package projecteuler.problem014;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
+import static projecteuler.ProjectEulerUtil.collatzIterative;
 /**
  * @author Joe
  *
@@ -44,27 +45,4 @@ public class Main {
         System.out.printf("Problem 14 Answer: %d", chainNumber);
     }
     
-    
-
-    
-    /* Probably didn't need to use BigIntegers... most likely
-     could have gotten away with longs
-     */
-    private static int collatzIterative(int start) {
-        BigInteger step = BigInteger.valueOf(start);
-        int numSteps = 1;
-        
-        while (step.compareTo(BigInteger.valueOf(1)) > 0) {
-            numSteps++;// = (step > 1 ? ++numSteps : numSteps);
-            if (step.mod(BigInteger.valueOf(2)).compareTo(BigInteger.valueOf(0)) == 0) {
-                step = step.divide(BigInteger.valueOf(2));
-            } else {
-                step = step.multiply(BigInteger.valueOf(3)).add(BigInteger.valueOf(1));
-                //step = (step * 3) + 1;
-            }
-            
-        }
-
-        return numSteps;
-    }
 }

@@ -1,6 +1,8 @@
 package projecteuler.problem015;
 
 import java.math.BigInteger;
+import static projecteuler.ProjectEulerUtil.factorial;
+import static projecteuler.ProjectEulerUtil.centralBinomialCoefficient;
 
 /**
  * @author Joe
@@ -19,23 +21,8 @@ public class Main {
         System.out.println("The answer to problem 15 is: " + centralBinomialCoefficient(20));
     }
     
-    public static BigInteger factorial(int num){
-        BigInteger result = BigInteger.valueOf(1);
-        for(int i = 2; i <= num; i++){
-            result = result.multiply(BigInteger.valueOf(i));
-        }
-        return result;
-    }
     
-    /**
-     * Finds the central binomial coefficient of a number (Middle number of 
-     * Pascal's triangle by row).
-     * @param num number to find the central binomial coefficient of.
-     * @return central binomial coefficient of num
-     */
-    private static BigInteger centralBinomialCoefficient(int num){
-        BigInteger result = factorial(num*2).divide(factorial(num).pow(2));
-        return result;
-    }
+    
+    
     
 }

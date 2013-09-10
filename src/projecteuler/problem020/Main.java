@@ -1,6 +1,8 @@
 package projecteuler.problem020;
 
-import static projecteuler.problem015.Main.factorial;
+import static projecteuler.ProjectEulerUtil.factorial;
+import static projecteuler.ProjectEulerUtil.stringToDigitArray;
+import static projecteuler.ProjectEulerUtil.intArraySum;
 
 /**
  * @author Joe
@@ -15,23 +17,11 @@ import static projecteuler.problem015.Main.factorial;
  */
 public class Main {
     public static void main(String[] args) {
-        int answer = intArraySum(stringToDigits(factorial(100).toString()));
+        int answer = intArraySum(stringToDigitArray(factorial(100).toString()));
         System.out.println("The answer to problem 20 is: " + answer);
     }
     
-    private static int intArraySum(int[] array){
-        int sum = 0;
-        for(int i = 0; i < array.length; i++){
-            sum += array[i];
-        }
-        return sum;
-    }
     
-    private static int[] stringToDigits(String string){
-        int[] digits = new int[string.length()];
-        for(int i = 0; i < string.length(); i++){
-            digits[i] = Integer.valueOf(string.substring(i, i+1));
-        }
-        return digits;
-    }
+    
+    
 }
