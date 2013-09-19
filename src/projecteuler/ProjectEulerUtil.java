@@ -205,4 +205,16 @@ public class ProjectEulerUtil {
         }
         return primes;
     }
+    
+    
+    
+    
+    public static int[][] listToArray(List<int[]> list) {
+        System.out.println(list);
+        int[][] array = new int[list.size()][list.get(list.size() - 1).length];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = list.get(i);
+        }
+        return array;
+    }
 }

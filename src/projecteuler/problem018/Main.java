@@ -9,6 +9,8 @@ import net.datbear.fileservice.FormatStrategy;
 import net.datbear.fileservice.impl.TextFileReader;
 import net.datbear.fileservice.impl.TextFileWriter;
 
+import static projecteuler.ProjectEulerUtil.listToArray;
+
 /**
  * @author Joe
  * 
@@ -66,14 +68,7 @@ public class Main {
 
     }
 
-    public static int[][] listToArray(List<int[]> list) {
-        System.out.println(list);
-        int[][] array = new int[list.size()][list.get(list.size() - 1).length];
-        for (int i = 0; i < array.length; i++) {
-            array[i] = list.get(i);
-        }
-        return array;
-    }
+    
 
     /**
      * Calculate the maximum path sum from top to bottom of the tree.
@@ -86,7 +81,7 @@ public class Main {
 
         for (int i = 0; i < tree.length; i++) {//row
             for (int j = 0; j < tree[i].length; j++) {//column
-                maxTree[i][j] = maxPath(i, j, maxTree, tree);
+                maxTree[i][j] = maxSubPath(i, j, maxTree, tree);
                 //System.out.printf("Max to path %d,%d = %d\n", i, j, maxTree[i][j]);
             }
         }
@@ -113,7 +108,7 @@ public class Main {
      * @param tree tree containing original values
      * @return max path sum to i,j (row,column) in the tree
      */
-    public static int maxPath(int i, int j, int[][] maxTree, int[][] tree) {
+    public static int maxSubPath(int i, int j, int[][] maxTree, int[][] tree) {
         int max = tree[i][j];
         if (i > 0) {
             if (j > 0) {

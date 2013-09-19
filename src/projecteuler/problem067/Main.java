@@ -10,6 +10,8 @@ import net.datbear.fileservice.FormatStrategy;
 import net.datbear.fileservice.impl.TextFileReader;
 import net.datbear.fileservice.impl.TextFileWriter;
 
+import static projecteuler.ProjectEulerUtil.listToArray;
+
 /**
  * @author Joe
  */
@@ -30,7 +32,7 @@ public class Main {
             System.out.println(e.getMessage());
         }
 
-        tree = projecteuler.problem018.Main.listToArray(treeList);
+        tree = listToArray(treeList);
         System.out.println("The answer to problem 67: " + projecteuler.problem018.Main.maxPathSum(tree));
 
     }
